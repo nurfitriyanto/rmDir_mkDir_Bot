@@ -8,7 +8,7 @@ import time
 _directory = '/home/plendock/Pictures/tes/'
 
 # function to make directory
-def make_dir(path, mode):
+def supermakedirs(path, mode):
     if not path or os.path.exists(path):
         return []
     (head, tail) = os.path.split(path)
@@ -22,10 +22,13 @@ while True:
     _time_now = time.strftime("%H:%M")
     print(_time_now)
     try:
-        if _time_now == '02:27': #set time to execute
+        if _time_now == '05:54': #set time to execute
             print('crrooooot')
-            shutil.rmtree(_directory)
-            make_dir(path=_directory, mode=0777)
+            try:
+                shutil.rmtree(_directory)
+                supermakedirs(path=_directory, mode=0777)
+            except:
+                supermakedirs(path=_directory, mode=0777)
         else:
             print('waitttt')
     except Exception as e:
